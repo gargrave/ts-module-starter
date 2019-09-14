@@ -1,0 +1,16 @@
+{
+  "name": "@gargrave/ts-module-starter",
+  "version": "0.0.1",
+  "description": "A basic setup for an NPM package built with TypeScript",
+  "author": "Gabe Hargrave <gkhargrave@gmail.com>",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.3"
+  }
+}
