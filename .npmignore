@@ -4,6 +4,7 @@
 node_modules
 src
 
+*.tgz
 .editorconfig
 .gitignore
 .npmignore

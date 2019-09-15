@@ -4,13 +4,34 @@
   "description": "A basic setup for an NPM package built with TypeScript",
   "author": "Gabe Hargrave <gkhargrave@gmail.com>",
   "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "jsnext:main": "dist/index.esm.js",
+  "browser": "dist/index.iife.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc"
+    "prebuild": "yarn clean",
+    "build": "rollup -c",
+    "postbuild": "yarn build:types",
+    "build:types": "tsc --emitDeclarationOnly",
+    "clean": "yarn rimraf dist"
   },
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-typescript": "^7.6.0",
+    "@types/react-dom": "^16.8.0",
     "prettier": "^1.18.2",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "rimraf": "^3.0.0",
+    "rollup": "^1.21.3",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "typescript": "^3.6.3"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   }
 }
