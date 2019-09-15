@@ -1,5 +1,6 @@
 import babel from 'rollup-plugin-babel'
 import resolve from 'rollup-plugin-node-resolve'
+import commonjs from 'rollup-plugin-commonjs'
 
 import pkg from './package.json'
 
@@ -16,20 +17,18 @@ export default {
       format: 'es',
       sourcemap: true,
     },
-    {
-      file: pkg.browser,
-      format: 'iife',
-      name: 'TsModuleStarter',
-      sourcemap: true,
-    },
   ],
   plugins: [
     resolve({
       extensions: ['.ts', '.tsx'],
+    }),
+    commonjs({
+      namedExports: { react: ['createElement'] },
     }),
     babel({
       extensions: ['.ts', '.tsx'],
       include: ['src/**/*'],
     }),
   ],
+  external: ['object-assign', 'prop-types/checkPropTypes'],
 }

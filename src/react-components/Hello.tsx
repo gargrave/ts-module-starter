@@ -1,7 +1,9 @@
 import * as React from 'react'
 
-export type HelloProps = {}
+export type HelloProps = {
+  text: string
+}
 
-export const Hello: React.FC<HelloProps> = () => {
-  return <div>Hello, Hello!</div>
+export const Hello: React.FC<HelloProps> = ({ text }) => {
+  return <div>Hello, {text}!</div>
 }
