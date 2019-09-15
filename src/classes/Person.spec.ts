@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Person } from './Person'
 
 describe('Person', () => {
@@ -18,8 +19,9 @@ describe('Person', () => {
   })
 
   it('says hello correctly', () => {
-    const p = new Person('Dave')
-    const result = p.sayHi()
+    const person = new Person('Dave')
+    person.sayHi()
+
     expect(mockConsoleLog).toHaveBeenCalledTimes(1)
     expect(mockConsoleLog).toHaveBeenCalledWith('Hello from Dave!')
   })
