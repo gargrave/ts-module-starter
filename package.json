@@ -12,6 +12,7 @@
     "prebuild": "jest && yarn clean",
     "build": "rollup -c",
     "postbuild": "yarn build:types",
+    "release": "yarn build && yarn np --yolo",
     "build:types": "tsc --emitDeclarationOnly",
     "clean": "yarn rimraf dist",
     "lint": "eslint --ext .ts,.tsx ./src",
@@ -38,8 +39,11 @@
     "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-react": "^7.14.3",
+    "husky": "^3.0.5",
     "jest": "^24.9.0",
+    "np": "^5.1.0",
     "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "rimraf": "^3.0.0",
@@ -52,5 +56,10 @@
   "peerDependencies": {
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
