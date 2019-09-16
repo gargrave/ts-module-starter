@@ -1,6 +1,8 @@
 # TS Module Starter
 
-Initial publish for local linking. There is nothing to see here!
+A basic setup for a publish-ready package built in TypeScript. You can use it
+either as a blueprint/outline, or just clone it, remove what you don't need, and
+use it as a template.
 
 ## Overview
 
