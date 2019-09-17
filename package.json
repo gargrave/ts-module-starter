@@ -3,18 +3,19 @@
   "version": "0.0.1",
   "description": "A basic setup for an NPM package built with TypeScript",
   "author": "Gabe Hargrave <gkhargrave@gmail.com>",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "jsnext:main": "dist/index.esm.js",
-  "browser": "dist/index.iife.js",
+  "main": "dist/ts-module-starter.cjs.js",
+  "module": "dist/ts-module-starter.esm.js",
+  "browser": "dist/ts-module-starter.umd.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "prebuild": "jest && yarn clean",
+    "clean:dist": "yarn rimraf dist",
+    "prebuild": "jest && yarn clean:dist && yarn build:types",
     "build": "rollup -c",
-    "postbuild": "yarn build:types",
-    "release": "yarn build && yarn np --yolo",
     "build:types": "tsc --emitDeclarationOnly",
-    "clean": "yarn rimraf dist",
+    "release": "yarn build && yarn np --yolo",
     "lint": "eslint --ext .ts,.tsx ./src",
     "test": "jest --watch"
   },
